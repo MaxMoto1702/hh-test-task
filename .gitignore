@@ -1,0 +1,8 @@
+test-output
+target
+doc
+.idea
+*.iml
+ipc.sublime-project
+ipc.sublime-workspace
+.svn
