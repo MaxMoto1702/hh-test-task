@@ -5,6 +5,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.slf4j.LoggerFactory;
 import ru.maxmoto1702.fw.HhApi;
+import ru.maxmoto1702.fw.HhSite;
 import ru.maxmoto1702.fw.UserProperties;
 
 import java.io.IOException;

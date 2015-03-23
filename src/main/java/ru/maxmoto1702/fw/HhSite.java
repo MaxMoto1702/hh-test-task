@@ -1,4 +1,4 @@
-package ru.maxmoto1702;
+package ru.maxmoto1702.fw;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
@@ -6,7 +6,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import ru.maxmoto1702.fw.UserProperties;
 
 import java.util.concurrent.TimeUnit;
 
