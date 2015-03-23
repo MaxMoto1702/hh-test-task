@@ -5,7 +5,7 @@ package ru.maxmoto1702.fw;
  */
 public class UserProperties {
     private static String USERNAME = "maxmotos@live.ru";
-    private static String PASSWORD = "17021989MaxMoto";
+    private static String PASSWORD = "Qwerty12345";
 
     public String getPassword() {
         return PASSWORD;
