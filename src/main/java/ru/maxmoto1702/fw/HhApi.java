@@ -29,11 +29,11 @@ public class HhApi {
     private long expiresIn;
     private String refreshToken;
 
-    public HhApi() {
+    public HhApi() throws IOException {
         this(new UserProperties());
     }
 
-    public HhApi(UserProperties userProperties) {
+    public HhApi(UserProperties userProperties) throws IOException {
         this.userProperties = userProperties;
         this.applicationProperties = new ApplicationProperties();
         setAuthorizationCode();
@@ -53,7 +53,7 @@ public class HhApi {
         this.authorizationCode = currentUrl.substring(currentUrl.indexOf("code=") + "code=".length());
     }
 
-    private void setToken() {
+    private void setToken() throws IOException {
         String parameters = "grant_type=authorization_code&client_id=" + applicationProperties.getClientId() +
                 "&client_secret=" + applicationProperties.getClientSecret() +
                 "&code=" + authorizationCode;
@@ -69,27 +69,27 @@ public class HhApi {
         }
     }
 
-    public String executeGet(String url) {
+    public String executeGet(String url) throws IOException {
         return executeGet(url, null);
     }
 
-    public String executeGet(String url, String parameters) {
+    public String executeGet(String url, String parameters) throws IOException {
         return executeGet(url, null, parameters);
     }
 
-    public String executeGet(String url, Map<String, String> headers, String parameters) {
+    public String executeGet(String url, Map<String, String> headers, String parameters) throws IOException {
         return execute("GET", url, headers, parameters);
     }
 
-    public String executePost(String url, String parameters) {
+    public String executePost(String url, String parameters) throws IOException {
         return executePost(url, null, parameters);
     }
 
-    public String executePost(String url, Map<String, String> headers, String parameters) {
+    public String executePost(String url, Map<String, String> headers, String parameters) throws IOException {
         return execute("POST", url, headers, parameters);
     }
 
-    public String execute(String method, String url, Map<String, String> headers, String parameters) {
+    public String execute(String method, String url, Map<String, String> headers, String parameters) throws IOException {
         StringBuffer response = null;
         try {
             HttpURLConnection connection;
@@ -135,6 +135,7 @@ public class HhApi {
             LOG.error("", e);
         } catch (IOException e) {
             LOG.error("", e);
+            throw e;
         }
         return response.toString();
     }
